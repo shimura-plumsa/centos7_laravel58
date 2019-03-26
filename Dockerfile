@@ -44,3 +44,14 @@ RUN rpm -Uvh libargon2-20161029-2.el7.x86_64.rpm
 ## PHPのインストール
 ### 本体（php7.2） ＆ Laravel5.8要件 & その他 
 RUN yum install -y --enablerepo=remi --enablerepo=remi-php72 php php-cli php-common php-pear php-devel php-gd php-imagick php-mcrypt php-mysqlnd php-opcache openssl-devel php-pdo php-mbstring php-tokenizer php-xml php-ctype php-json php-bcmath
+
+## compoerインストール
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+
+## node, npm, yarn
+RUN yum install -y nodejs npm --enablerepo=epel
+RUN npm install -g n
+RUN n latest
+RUN npm update -g
+RUN npm install -g yarn
